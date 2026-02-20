@@ -80,8 +80,8 @@ Don't forget to turn your warnings off either in the individual code chunk or in
 
 ```{r abalone-model}
 abalone_model <- lm(
-  change_in_area ~ mean_ph, # 
-  data = abalone_clean      # 
+  change_in_area ~ mean_ph, # change in shell surface area per data as a function of pH
+  data = abalone_clean      # dataL clean abalone data set
 )
 ```
 
@@ -89,10 +89,14 @@ abalone_model <- lm(
 
 ```{r abalone-model-diagnostics}
 
-par(mfrow = c(2, 2))   # 
-plot(abalone_model)    # 
+par(mfrow = c(2, 2))   # display residual plots in 2x2 grid
+plot(abalone_model)    # plot residuals 
 
 ```
+
+**Personal notes:**Residuals seem homoscedastic (consistent across values) based on Residuals vs Fitted and Scale-Location plots. Residuals also seem normally distributed based on QQplot. No major outliers based on Residuals vs. Leverage plot. 
+
+**Written communiation:** We evaluated model assumptions visually. For homoscedacity of residuals we used Residuals vs Fitted and Scale0Location plots. For normality of residuals, we used QQ plots. Based on our diagnostics, there were no major deviations from homoscedasticity or normality of residuals. There were also no outliers that might influence model estimates or predictions. 
 
 ### Model summary
 
